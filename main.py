@@ -7,7 +7,9 @@ db = []
 def getTemperatureHumidity():
     global db
     args = request.args
-    db += [[args.get("t"), args.get("h")]]
+    if args.get("t") is not None and args.get("h") is not None:
+        db += [[args.get("t"), args.get("h")]]
+
     return db
 
 
